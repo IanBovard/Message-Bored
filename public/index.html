@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>This is the main page</title>
+  <title>Index.html</title>
+  <base href="/">
 </head>
-<body>
+<body ng-app="msgBored">
+  <div ng-view></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
+  <script src="/scripts/app.js"></script>
+  <script src="/components/home/home.controller.js"></script>
 </body>
 </html>
