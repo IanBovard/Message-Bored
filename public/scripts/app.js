@@ -6,7 +6,12 @@ msgBored
   .when('/', {
     templateUrl: 'components/home/home.html',
     controller: 'HomeController'
-  });
+  })
+  .when('/users', {
+    templateUrl: 'components/users/users.html',
+    controller: 'UsersController'
+  })
+  .otherwise( { redirectTo: '/'} );
   $locationProvider.html5Mode(true);
 }])
 .run(function(){

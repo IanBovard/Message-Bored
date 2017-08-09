@@ -4,7 +4,7 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     queryInterface.addColumn(
       'topics',
-      'Topics_created_by_fkey',
+      'created_by',
       Sequelize.INTEGER
       );
   },
@@ -12,6 +12,6 @@ module.exports = {
   down: function (queryInterface, Sequelize) {
     queryInterface.removeColumn(
       'topics',
-      'Topics_created_by_fkey');
+      'created_by');
   }
 };

@@ -1,13 +1,12 @@
-/*angular.module('msgBored')
+angular.module('msgBored')
 .service('HomeService', ['$http', function($http){
-  function getHome() {
-    return $http.get('/api/users')
-    .then(function(users){
-      console.log(users);
-      return users.data;
+  function getTopics(){
+    return $http.get('/api/topics')
+    .then(function(topics){
+      return topics.data;
     });
   }
   return {
-    getHome: getHome
+    getTopics: getTopics
   };
-}]);*/
+}]);

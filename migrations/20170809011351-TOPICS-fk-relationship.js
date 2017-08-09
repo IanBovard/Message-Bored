@@ -2,9 +2,9 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    queryInterface.addConstraint('topics', ['Topics_created_by_fkey'], {
+    queryInterface.addConstraint('topics', ['created_by'], {
       type: 'FOREIGN KEY',
-      name: 'created_by_fk',
+      name: 'created_by',
       references: {
         table: 'users',
         field: 'id'
@@ -15,6 +15,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    queryInterface.removeConstraint('topics', 'created_by_fk');
+    queryInterface.removeConstraint('topics', 'created_by');
   }
 };

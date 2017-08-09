@@ -2,9 +2,9 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) {
-    queryInterface.addConstraint('messages', ['Messages_author_id_fkey'], {
+    queryInterface.addConstraint('messages', ['author_id'], {
       type: 'FOREIGN KEY',
-      name: 'author_fk',
+      name: 'author_id',
       references: {
         table: 'users',
         field: 'id'
@@ -15,6 +15,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) {
-    queryInterface.removeConstraint('messages', 'author_fk');
+    queryInterface.removeConstraint('messages', 'author_id');
   }
 };

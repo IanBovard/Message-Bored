@@ -4,7 +4,7 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     queryInterface.addColumn(
       'messages',
-      'Messages_topic_id_fkey',
+      'topic_id',
       Sequelize.INTEGER
       );
   },
@@ -12,7 +12,7 @@ module.exports = {
   down: function (queryInterface, Sequelize) {
     queryInterface.removeColumn(
       'topics',
-      'Messages_topic_id_fkey'
+      'topic_id'
       );
   }
 };

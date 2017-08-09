@@ -6,12 +6,21 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   }, {
-    tableName: 'messages',
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
-      }
-    }
+    tableName: 'messages'
   });
+  messages.associate = function(models) {
+    messages.belongsTo(models.topics,  {
+      foreignKey: {
+        name: 'topic_id',
+        allowNull: false
+      }
+    });
+    messages.belongsTo(models.users,  {
+      foreignKey: {
+        name: 'author_id',
+        allowNull: false
+      }
+    });
+  };
   return messages;
 };

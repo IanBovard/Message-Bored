@@ -1,8 +1,6 @@
 angular.module('msgBored')
-.controller('HomeController', ['$scope', function($scope){
-  $scope.myName = 'Blaster Master';
-/*  HomeService.getHome()
-  .then(function(users){
-    $scope.users = users;
-  });*/
+.controller('HomeController', ['$scope', 'HomeService', function($scope, HomeService){
+  $scope.search = '';
+  HomeController.getTopics()
+  .then(topics);
 }]);
