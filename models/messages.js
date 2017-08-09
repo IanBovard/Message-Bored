@@ -1,8 +1,10 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var messages = sequelize.define('messages', {
-    body: DataTypes.STRING,
-    allowNull: false
+    body: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   }, {
     tableName: 'messages',
     classMethods: {
