@@ -1,0 +1,10 @@
+.main-container{
+  display: flex;
+}
+.navbar{
+  flex: 1;
+
+}
+.content-body{
+  flex: 7;
+}

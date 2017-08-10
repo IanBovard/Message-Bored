@@ -2,12 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
   <title>Message Bored</title>
   <base href="/">
 </head>
-<body ng-app="msgBored">
-  <div ng-view></div>
-
+<div class="main-container">
+  <body ng-app="msgBored">
+    <div class="navbar">
+      <div class="navlinks">
+        <a href="/home">Home</a><br>
+        <a href="/users">Users</a>
+        <a href="/login">Login</a><br>
+        <a href="/register">Register</a><br>
+        - - - - - -
+      </div>
+    </div>
+    <div class="content-body">
+      <div ng-view></div>
+    </div>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-route.js"></script>
   <script src="/scripts/app.js"></script>
