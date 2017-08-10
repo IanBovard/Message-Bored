@@ -5,6 +5,6 @@
 <li ng-repeat="user in userMessages[0].messages | filter:search | orderBy: createdAt">
     <p>{{user.body}}</p>
     <p>{{user.createdAt}}</p>
-    <p>{{user.topic.title}}</p>
+    <a href="/topics/{{ user.topic.id }}">{{user.topic.title}}</a>
   </li>
 </ul>

@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
   return Users.findById(pathId, {
     attributes: ['id', 'username'],
     include: [{ model: Messages, attributes: ['body', 'createdAt'],
-    include: [{ model: Topics, attributes: ['title']
+    include: [{ model: Topics, attributes: ['title', 'id']
   }]}]
 })
   .then(userMessages => {

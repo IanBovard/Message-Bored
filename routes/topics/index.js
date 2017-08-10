@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../../models');
 let Users = db.users;
 let Messages = db.messages;
-let Topics =db.topics;
+let Topics = db.topics;
 
 router.get('/', (req, res) => {
   return Topics.findAll({
@@ -25,12 +25,12 @@ router.get('/:id', (req, res) => {
       attributes: ['body', 'createdAt'],
       include: {
         model: Users,
-        attributes: ['username']
+        attributes: ['username', 'id']
       }
     },
     {
       model: Users,
-      attributes: ['username']}]
+      attributes: ['username', 'id']}]
     })
   .then(topicMessages => {
     console.log(topicMessages);

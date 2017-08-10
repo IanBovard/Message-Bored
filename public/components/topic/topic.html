@@ -1,10 +1,10 @@
 <a href="/home">Come back home</a>
 <a href="/users">Your friends miss you</a><br>
-<input type="text" ng-model="search" placeholder="FIND IT!"><br>
-<p>{{ topicMessages[0].title }} :: {{ topicMessages[0].user.username }} :: {{ topicMessages[0].createdAt }}</p>
+<input type="text" ng-model="search" placeholder="Look carefully"><br>
+<p>{{ topicMessages[0].title }} :: <a href="/users/{{topicMessages[0].user.id }}">{{ topicMessages[0].user.username }}</a> :: {{ topicMessages[0].createdAt }}</p>
 <ul>
   <li ng-repeat="message in topicMessages[0].messages | filter:search | orderBy: createdAt">
     <p>{{ message.body }}</p>
-    <p>{{ message.user.username }} :: {{ message.createdAt }}</p>
+    <p><a href="/users/{{message.user.id }}">{{ message.user.username }}</a> :: {{ message.createdAt }}</p>
   </li>
 </ul>
