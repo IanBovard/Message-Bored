@@ -21,7 +21,7 @@ router.get('/:id', (req, res) => {
   }]}]
 })
   .then(userMessages => {
-    res.json(userMessages.dataValues);
+    res.json(userMessages);
   });
 });
 module.exports = router;

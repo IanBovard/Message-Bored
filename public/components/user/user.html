@@ -1,0 +1,10 @@
+<input type="text" ng-model="search" placeholder="FIND IT!"><br>
+<a href="/home">Come back home</a>
+<a href="/users">Your friends miss you</a>
+<ul>
+<li ng-repeat="user in userMessages[0].messages | filter:search | orderBy: createdAt">
+    <p>{{user.body}}</p>
+    <p>{{user.createdAt}}</p>
+    <p>{{user.topic.title}}</p>
+  </li>
+</ul>

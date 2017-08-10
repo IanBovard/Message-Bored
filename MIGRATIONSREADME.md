@@ -69,13 +69,13 @@ INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") V
 
 ::Rush id4::
 
-INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('woof woof woof', now(), now(), 2, 10);
-INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('ruff ruff', now(), now(), 2, 11);
-INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('grrrRrrRRRrrrR', now(), now(), 2, 12);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('woof woof woof', now(), now(), 4, 10);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('ruff ruff', now(), now(), 4, 11);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('grrrRrrRRRrrrR', now(), now(), 4, 12);
 
 ::Bass id5::
 
-INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':(', now(), now(), 2, 1);
-INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':)', now(), now(), 2, 4);
-INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':o', now(), now(), 2, 9);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':(', now(), now(), 5, 1);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':)', now(), now(), 5, 4);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':o', now(), now(), 5, 9);
 

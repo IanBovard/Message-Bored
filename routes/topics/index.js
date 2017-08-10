@@ -12,8 +12,29 @@ router.get('/', (req, res) => {
     include: [{ model: Users , attributes: ['username']}]
   })
   .then(topics => {
-    console.log(topics);
     res.json(topics);
+  });
+});
+
+router.get('/:id', (req, res) => {
+  let pathId = req.params.id;
+  return Topics.findById(pathId, {
+    attributes: ['id', 'title', 'createdAt'],
+    include: [{
+      model: Messages,
+      attributes: ['body', 'createdAt'],
+      include: {
+        model: Users,
+        attributes: ['username']
+      }
+    },
+    {
+      model: Users,
+      attributes: ['username']}]
+    })
+  .then(topicMessages => {
+    console.log(topicMessages);
+    res.json(topicMessages);
   });
 });
 module.exports = router;

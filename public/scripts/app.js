@@ -15,6 +15,10 @@ msgBored
     templateUrl: 'components/user/user.html',
     controller: 'UserController'
   })
+  .when('/topics/:id', {
+    templateUrl: 'components/topic/topic.html',
+    controller: 'TopicController'
+  })
   .otherwise( { redirectTo: '/'} );
   $locationProvider.html5Mode(true);
 }])
