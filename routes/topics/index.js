@@ -9,7 +9,7 @@ let Topics = db.topics;
 router.get('/', (req, res) => {
   return Topics.findAll({
     attributes: ['id','title', 'createdAt'],
-    include: [{ model: Users , attributes: ['username']}]
+    include: [{ model: Users , attributes: ['username', 'id']}]
   })
   .then(topics => {
     res.json(topics);
