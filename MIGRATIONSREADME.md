@@ -46,3 +46,36 @@ INSERT INTO topics (title, "createdAt", "updatedAt", "created_by") VALUES ('pant
 INSERT INTO topics (title, "createdAt", "updatedAt", "created_by") VALUES ('Keeping treble out of trouble', now(), now(), 5);
 INSERT INTO topics (title, "createdAt", "updatedAt", "created_by") VALUES ('Looking for helmets with spikes', now(), now(), 5);
 INSERT INTO topics (title, "createdAt", "updatedAt", "created_by") VALUES ('Where are my games? Cameos at least!', now(), now(), 5);
+
+                      ::public.messages::
+::Zero id1::
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('Pineapple pleasure cruise', now(), now(), 1, 1);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('Glass cannon economics', now(), now(), 1, 2);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('Bagel basket surprise', now(), now(), 1, 3);
+
+
+::Megaman id2::
+
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('GIT GUD! BRO!', now(), now(), 2, 4);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('GIT GUD! BRAH!', now(), now(), 2, 5);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('GIT GUD! BRUH!', now(), now(), 2, 6);
+
+
+::Protoman id3::
+
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('a/s/l?', now(), now(), 3, 7);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('a/s/l? please?', now(), now(), 3, 8);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('a/s/l? pretty please?', now(), now(), 3, 9);
+
+::Rush id4::
+
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('woof woof woof', now(), now(), 2, 10);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('ruff ruff', now(), now(), 2, 11);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values ('grrrRrrRRRrrrR', now(), now(), 2, 12);
+
+::Bass id5::
+
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':(', now(), now(), 2, 1);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':)', now(), now(), 2, 4);
+INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':o', now(), now(), 2, 9);
+
