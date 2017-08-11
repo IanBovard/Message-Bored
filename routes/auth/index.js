@@ -9,9 +9,9 @@ const bcrypt = require('bcrypt');
 let Users = db.users;
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-  return res.json({ success: true, message: req.user })
+  res.json({ success: true, message: req.user })
   .catch(err => {
-    return res.json({ success:false, message: 'failed to login'});
+    res.json({ success:false, message: 'failed to login'});
   });
 });
 
@@ -25,11 +25,11 @@ router.post('/register', (req, res) => {
       }).then(user => {
         req.login(user, (err) => {
           if (err) {return next(err);}
-          return res.json({ success: true, message: req.user });
+          res.json({ success: true, message: req.user });
         });
       })
       .catch(err => {
-        return res.json({ success: false, message: 'Failed to register new account' });
+        res.json({ success: false, message: 'Failed to register new account' });
       });
     });
   });
@@ -37,7 +37,7 @@ router.post('/register', (req, res) => {
 
 router.get('/logout', (req, res) => {
   req.logout();
-  return res.json({ success: true, message: 'You logged out'});
+  res.json({ success: true, message: 'You logged out'});
 });
 
 module.exports = router;

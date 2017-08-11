@@ -32,15 +32,11 @@ passport.use(new LocalStrategy (
   function(username, password, done) {
     Users.findOne({ where: { username: username } })
     .then ( user => {
-      console.log("FIRST LOG",user);
       if (user === null) {
-        console.log("SHOULD BE NULL", user);
         return done(null, false, {message: 'bad username or password'});
       }
       else {
         console.log("SECOND LOG",user);
-        console.log(password);
-        console.log(user.password);
         bcrypt.compare(password, user.password)
         .then(res => {
           if (res) { return done(null, user); }
@@ -77,3 +73,7 @@ app.get('*', (req, res) => {
 app.listen(PORT, (err) => {
   console.log(`server listening on port: ${PORT}`);
 });
+
+
+
+

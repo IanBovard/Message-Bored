@@ -9,7 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       body: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+          notEmpty: { msg: 'Can\'t post an empty message'}
+        }
       },
       createdAt: {
         allowNull: false,

@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: { msg: 'Topic has been created.'},
       validate: {
         notEmpty: { msg: 'Needs a title'}
       }

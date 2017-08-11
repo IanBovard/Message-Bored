@@ -9,12 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       username: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.STRING
+        validate: {
+          notEmpty: { msg: 'Incorrect Username'}
+        }
       },
       password: {
+        type: Sequelize.STRING,
         allowNull: false,
-        type: Sequelize.STRING
+        validate: {
+          notEmpty: { msg: 'Incorrect Password'}
+        }
       },
       createdAt: {
         allowNull: false,
