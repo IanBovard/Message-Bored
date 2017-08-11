@@ -7,6 +7,14 @@ msgBored
     templateUrl: 'components/home/home.html',
     controller: 'HomeController'
   })
+  .when('/login', {
+    templateUrl: 'components/login/login.html',
+    controller: 'LoginController'
+  })
+  .when('/register', {
+    templateUrl: 'components/register/register.html',
+    controller: 'RegController'
+  })
   .when('/users', {
     templateUrl: 'components/users/users.html',
     controller: 'UsersController'

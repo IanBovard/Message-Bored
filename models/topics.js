@@ -3,7 +3,10 @@ module.exports = function(sequelize, DataTypes) {
   var topics = sequelize.define('topics', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Needs a title'}
+      }
     }
   }, {
     tableName: 'topics'

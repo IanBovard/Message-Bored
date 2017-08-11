@@ -11,7 +11,7 @@ module.exports = {
 
   down: function (queryInterface, Sequelize) {
     queryInterface.removeColumn(
-      'topics',
+      'messages',
       'author_id'
       );
   }

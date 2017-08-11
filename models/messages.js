@@ -3,7 +3,10 @@ module.exports = function(sequelize, DataTypes) {
   var messages = sequelize.define('messages', {
     body: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Can\'t post an empty message'}
+      }
     }
   }, {
     tableName: 'messages'

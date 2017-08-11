@@ -3,8 +3,19 @@ module.exports = function(sequelize, DataTypes) {
   var users = sequelize.define('users', {
     username: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+      unique: { msg: 'Username is taken.'},
+      validate: {
+        notEmpty: { msg: 'Incorrect Username'}
+      }
+    },
+    password: {
+      type : DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: { msg: 'Incorrect Password'}
+      }
+    },
   }, {
     tableName: 'users'
   });

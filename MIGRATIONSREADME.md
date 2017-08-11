@@ -5,10 +5,11 @@ DROP USER bored;
 CREATE USER bored WITH LOGIN PASSWORD 'password';
 CREATE DATABASE message_bored WITH OWNER bored;
 
-sequelize model:create --name users --attributes username:string
+sequelize model:create --name users --attributes username:string,password:string
 sequelize model:create --name topics --attributes title:string
 sequelize model:create --name messages --attributes body:string
 add allowNull to migrations and models
+add unique constraint to models
 sequelize db:migrate
 
 ::funny-data::
@@ -79,3 +80,94 @@ INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") V
 INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':)', now(), now(), 5, 4);
 INSERT INTO messages (body, "createdAt", "updatedAt", "author_id", "topic_id") Values (':o', now(), now(), 5, 9);
 
+
+
+
+
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var messages = sequelize.define('messages', {
+    body: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
+    tableName: 'messages'
+  });
+  messages.associate = function(models) {
+    messages.belongsTo(models.topics,  {
+      foreignKey: {
+        name: 'topic_id',
+        allowNull: false
+      }
+    });
+    messages.belongsTo(models.users,  {
+      foreignKey: {
+        name: 'author_id',
+        allowNull: false
+      }
+    });
+  };
+  return messages;
+};
+
+
+
+
+
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var topics = sequelize.define('topics', {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
+    tableName: 'topics'
+  });
+  topics.associate = function(models) {
+    topics.belongsTo(models.users,  {
+      foreignKey: {
+        name: 'created_by',
+        allowNull: false
+      }
+    });
+    topics.hasMany(models.messages,  {
+      foreignKey: {
+        name: 'topic_id',
+        allowNull: false
+      }
+    });
+  };
+  return topics;
+};
+
+
+
+
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var users = sequelize.define('users', {
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
+    tableName: 'users'
+  });
+   users.associate = function(models) {
+    users.hasMany(models.topics,  {
+      foreignKey: {
+        name: 'created_by',
+        allowNull: false
+      }
+    });
+    users.hasMany(models.messages,  {
+      foreignKey: {
+        name: 'author_id',
+        allowNull: false
+      }
+    });
+  };
+  return users;
+};
