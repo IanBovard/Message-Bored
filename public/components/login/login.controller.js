@@ -1,5 +1,5 @@
 angular.module('msgBored')
-.controller('LoginController', ['$scope', 'LoginService', function($scope, LoginService){
+.controller('LoginController', ['$scope', 'LoginService','$location', function($scope, LoginService, $location){
   $scope.authUser = {
     username: '',
     password: ''

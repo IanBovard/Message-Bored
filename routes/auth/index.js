@@ -9,10 +9,7 @@ const bcrypt = require('bcrypt');
 let Users = db.users;
 
 router.post('/login', passport.authenticate('local'), (req, res) => {
-  res.json({ success: true, message: req.user })
-  .catch(err => {
-    res.json({ success:false, message: 'failed to login'});
-  });
+  res.json({ success: true, message: req.user });
 });
 
 router.post('/register', (req, res) => {

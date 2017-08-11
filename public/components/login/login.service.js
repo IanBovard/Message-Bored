@@ -1,9 +1,16 @@
 angular.module('msgBored')
-.service('LoginService', ['$http', function($http){
+.service('LoginService', ['$http','$location', function($http, $location){
   function authUser(userData){
     return $http.post('/api/login', userData)
     .then(function(userData){
-      return userData.data;
+      if ( userData.data.success === true){
+        $location.url('/');
+        return userData.data;
+      }
+    }).catch(function(err){
+      if (err.status === 401){
+        $location.url('/login');
+      }
     });
   }
   return {
