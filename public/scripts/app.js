@@ -30,6 +30,27 @@ msgBored
   .otherwise( { redirectTo: '/'} );
   $locationProvider.html5Mode(true);
 }])
-.run(function(){
-  console.log('running');
-});
+.run(['$rootScope','$http', '$location', function($rootScope, $http, $location){
+  function getLocalStorage(){
+    if (localStorage.username){
+      $rootScope.isLoggedIn = true;
+      $rootScope.isNotLoggedIn = false;
+    }else{
+      $rootScope.isLoggedIn = false;
+      $rootScope.isNotLoggedIn = true;
+    }
+  }
+  getLocalStorage();
+
+  $rootScope.logout = function(){
+    $http.get('/api/logout')
+    .then(function(logoutData){
+      if (localStorage.username){
+        $location.url('/');
+        localStorage.removeItem("username");
+        $rootScope.isNotLoggedIn = true;
+        $rootScope.isLoggedIn = false;
+      }
+    });
+  };
+}]);

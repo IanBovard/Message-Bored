@@ -1,8 +1,7 @@
 <div class="home-container">
+  <input type="text" ng-model="search" placeholder="It's dangerous out there">
   <p>Latest Topics</p>
   <div class="home-topics">
-    - - - - - - - - - - - - - - - - - - - - - - <br>
-    <input type="text" ng-model="search" placeholder="It's dangerous out there">
     <ul class="home-topics-container">
       <li class="home-topics" ng-repeat="topic in topics | filter:search | orderBy: createdAt | limitTo: 10">
         <a href="/topics/{{ topic.id }}">{{ topic.title }}</a>
