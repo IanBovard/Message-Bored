@@ -13,8 +13,22 @@ angular.module('msgBored')
       return editTopic.data;
     });
   }
+  function newMessage(path, body){
+    return $http.post('/api/messages/', body)
+    .then(function(message){
+      return message.data;
+    });
+  }
+    function getMessages(path){
+    return $http.get('/api/users/' + path)
+    .then(function(userMessages){
+      return userMessages.data;
+    });
+  }
   return {
     getTopicMessages: getTopicMessages,
-    editTopic: editTopic
+    editTopic: editTopic,
+    newMessage: newMessage,
+    getMessages: getMessages
   };
 }]);

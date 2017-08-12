@@ -1,12 +1,17 @@
 <input type="text" ng-model="search" placeholder="Look carefully"><br>
-<p>{{ topicMessages[0].title }} :: <a href="/users/{{topicMessages[0].user.id }}">{{ topicMessages[0].user.username }}</a> :: {{ topicMessages[0].createdAt }}</p>
+<p>{{ topicMessages[0].title }} :: <a href="/users/{{topicMessages[0].user.id }}">{{ topicMessages[0].user.username }}</a> :: {{ topicMessages[0].createdAt }}
+  <div ng-if="isLoggedIn">
+    <input type="text" ng-model="edit.title" placeholder="Edit title">
+    <button ng-click="editTopic()">Edit</button>  <button>Delete</button>
+  </div>
+  <ul>
+    <li ng-repeat="message in topicMessages[0].messages | filter:search | orderBy: createdAt">
+      <p>{{ message.body }}</p>
+      <p><a href="/users/{{message.user.id }}">{{ message.user.username }}</a> :: {{ message.createdAt }}</p>
+    </li>
+  </ul>
+  <div ng-if="isLoggedIn">
+    <textarea style="resize:none" cols="45" rows="10" ng-model="message.body"></textarea>
+    <button ng-click="addMessage()">Make sure it's nice</button>
+  </div>
 
-<input type="text" ng-model="edit.title" placeholder="New title">
-<button ng-click="editTopic()">Edit</button>  <button>Delete</button>
-
-<ul>
-  <li ng-repeat="message in topicMessages[0].messages | filter:search | orderBy: createdAt">
-    <p>{{ message.body }}</p>
-    <p><a href="/users/{{message.user.id }}">{{ message.user.username }}</a> :: {{ message.createdAt }}</p>
-  </li>
-</ul>
