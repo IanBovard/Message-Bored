@@ -1,5 +1,5 @@
 angular.module('msgBored')
-.controller('RegController', ['$scope', 'RegService', '$window', function($scope, RegService, $location){
+.controller('RegController', ['$scope', 'RegService', function($scope, RegService){
   $scope.newUser = {
     username: '',
     password: ''

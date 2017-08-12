@@ -6,7 +6,14 @@ angular.module('msgBored')
       return userMessages.data;
     });
   }
+  function editTopic(path, title){
+    return $http.put('/api/topics/' + path)
+    .then(function(editTopic){
+      return editTopic.data;
+    });
+  }
   return {
-    getUser: getUser
+    getUser: getUser,
+    editTopic: editTopic
   };
 }]);

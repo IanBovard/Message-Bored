@@ -1,8 +1,20 @@
 angular.module('msgBored')
-.controller('HomeController', ['$scope', 'HomeService', function($scope, HomeService){
+.controller('HomeController', ['$scope', 'HomeService', '$location', function($scope, HomeService, $location){
   $scope.search = '';
-  HomeService.getTopics()
-  .then(function(topics){
-    $scope.topics = topics;
-  });
+  var getTopics = function(){
+    HomeService.getTopics()
+    .then(function(topics){
+      $scope.topics = topics;
+    });
+  };
+  getTopics();
+
+
+  $scope.newTopic = {
+    title: ''
+  };
+  $scope.addTopic = function(){
+    HomeService.createNewTopic($scope.newTopic);
+    getTopics();
+  };
 }]);
